@@ -223,6 +223,7 @@ function UserContextProvider(props) {
     function upVote(issueId) {
         userAxios.put(`/api/issue/upvote/${issueId}`)
             .then(response => {
+                getAllIssues();
                 setUserState(prev => {
                     return {
                         ...prev, issue: response.data
@@ -235,6 +236,7 @@ function UserContextProvider(props) {
     function downVote(issueId) {
         userAxios.put(`/api/issue/downvote/${issueId}`)
             .then(response => {
+                getAllIssues();
                 setUserState(prev => {
                     return {
                         ...prev, issue: response.data

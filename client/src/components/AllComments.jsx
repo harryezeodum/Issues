@@ -55,7 +55,7 @@ function AllComments(props) {
 
     return (
         <ul>
-            {allComment.length >= 1 && <button className="button-color" onClick={showComment}>{toggle ? "Hide Comment" : "Show Comment"}</button>} <br /> <br />
+            {allComment.length >= 0 && <button className="button-color" onClick={showComment}>{toggle ? "Hide Comment" : "Show Comment"}</button>} <br /> <br />
             {toggle && allComment}
             {toggle && <form onSubmit={addComment}>
                 <input
