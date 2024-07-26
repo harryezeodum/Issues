@@ -1,3 +1,8 @@
+/* 
+on render
+Build Command: npm install && cd client && npm install && npm run build
+Start Command: npm start
+*/
 const express = require("express");
 const app = express();
 require("dotenv").config();
