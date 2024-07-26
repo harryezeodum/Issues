@@ -13,7 +13,7 @@ function UserIssues() {
     }
 
     function addIssue() {
-        <Navigate to="/addissue" /> 
+        navigate("/addissue");
     }
 
     function deleteUserIssue(id) {

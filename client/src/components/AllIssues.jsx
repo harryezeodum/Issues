@@ -1,13 +1,15 @@
 import React, { useEffect, useContext } from "react";
 import { UserContext } from "./UserContextProvider";
 import AllComments from "./AllComments";
+import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 function AllIssues() {
     const userContext = useContext(UserContext);
+    const navigate = useNavigate();
 
     function addIssue() {
-        <Navigate to="/addissue" />
+        navigate("/addissue");
     }
 
     function adminDeleteIssue(id) {
