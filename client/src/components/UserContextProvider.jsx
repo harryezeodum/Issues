@@ -299,7 +299,7 @@ function UserContextProvider(props) {
     }
 
     function editPassword(username, update) {
-        userAxios.put(`/api/auth/allusers/${username}`, update)
+        userAxios.put(`/api/auth/password/${username}`, update)
             .then(response => {
                 getUser(username);
                 setUserState(prev => {
