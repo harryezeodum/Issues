@@ -25,8 +25,9 @@ function AllComments(props) {
         return [
             <em>
                 {props.issue._id === allcomment.issue && < li key={index} >
-                    <span>{allcomment.text}</span> <br />
-                    <small>Date created: {allcomment.createdOn.slice(0, 10) + " " + allcomment.createdOn.slice(12, 19)}</small>
+                    <span><strong>Username:</strong> {allcomment.username}</span> <br/>
+                    <small> <strong>Date posted:</strong> {allcomment.createdOn.slice(0, 10) + " " + allcomment.createdOn.slice(12, 19)}</small> <br />
+                    <span>{allcomment.text} </span>
                     <br /><br />
                 </li >}
             </em>
@@ -58,7 +59,7 @@ function AllComments(props) {
             {allComment.length >= 0 && <button className="button-color" onClick={showComment}>{toggle ? "Hide Comment" : "Show Comment"}</button>} <br /> <br />
             {toggle && allComment}
             {toggle && <form onSubmit={addComment}>
-                <input
+                <textarea
                     name="text"
                     onChange={commentChanges}
                     value={commentInput.text}

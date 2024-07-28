@@ -7,7 +7,7 @@ commentRouter.route("/")
     .get(async (req, res, next) => {
         try {
             const comment = await Comment.find({});
-            return res.status(200).send(comment);
+            return res.status(200).send({comments: comment });
         }
         catch (err) {
             error = err.message;

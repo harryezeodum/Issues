@@ -16,11 +16,11 @@ function AllIssues() {
         userContext.AdminDelete(id);
         <Navigate to="/allissues"/>
     }
-
+   
     const allIssues = userContext.userState.allissues.map((allissue, index) => {
         return [
             <>
-                <li className="" key={index} >
+                <li key={index} >
                     <span > <strong>Username: </strong></span>
                     <span>{allissue.username}</span> <br />
                     <span > <strong>Title: </strong></span>
@@ -53,6 +53,5 @@ function AllIssues() {
         </div>
     )
 }
-//
 
 export default AllIssues

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AllComments from './AllComments';
 
 const UserContext = React.createContext();
 
@@ -18,11 +17,12 @@ function UserContextProvider(props) {
         user: JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
         issue: [],
-        comment: [],
-        allissues: JSON.parse(localStorage.getItem("allissues")) || []
+        comment: JSON.parse(localStorage.getItem("comments")) || [],
+        allissues: JSON.parse(localStorage.getItem("allIssues")) || []
     };
 
     const [userState, setUserState] = useState(initState);
+
     const [allUser, setAllUser] = useState([{
         users: JSON.parse(localStorage.getItem("users")) || []
     }]);
@@ -78,7 +78,7 @@ function UserContextProvider(props) {
                     getUserIssues();
                     getAllUsers();
                     navigate("/profile");
-                    
+
                 }
                 else {
                     setUserState({
@@ -102,6 +102,7 @@ function UserContextProvider(props) {
                         ...prevUser, user, token
                     }
                 })
+
                 if (token && !isAdmin) {
                     navigate("/profile");
                     getAllIssues();
@@ -199,9 +200,11 @@ function UserContextProvider(props) {
     function getAllComments() {
         userAxios.get("/api/comment")
             .then(response => {
+                const { comments } = response.data;
+                localStorage.setItem("comments", JSON.stringify(comments));
                 setUserState(prev => {
                     return {
-                        ...prev, comment: response.data
+                        ...prev, comment: comments
                     }
                 })
             })
