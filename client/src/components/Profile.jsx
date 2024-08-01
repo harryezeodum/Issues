@@ -7,16 +7,13 @@ function Profile() {
     const [editProfile, setEditProfile] = useState({});
 
     useEffect(() => {
-        // setPassword({
-        //     password: userContext.user.password
-        // })
-
         setEditProfile({
             username: userContext.user.username,
             email: userContext.user.email,
             memberSince: userContext.user.memberSince.slice(0, 10),
             isAdmin: userContext.user.isAdmin
         })
+
     }, []);
 
     const [isPasswordEdit, setIsPasswordEdit] = useState(false);

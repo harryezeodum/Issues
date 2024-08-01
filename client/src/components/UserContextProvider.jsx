@@ -122,11 +122,15 @@ function UserContextProvider(props) {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         localStorage.removeItem("users");
+        localStorage.removeItem("allIssues");
+        localStorage.removeItem("comments");
 
         setUserState({
             user: {},
             token: "",
-            billtracker: []
+            billtracker: [],
+            allissues: [],
+            comment: []
         });
     }
 
